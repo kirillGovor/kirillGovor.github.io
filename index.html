@@ -1,0 +1,90 @@
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Squirrel</title>    
+  <link rel="shortcut icon" href="img/favicon.ico" />
+  <script src="script/Timer.js"></script> 
+  <script src="script/menu.js"></script>  
+  <script src="script/record.js"></script> 
+  <script>
+      
+      window.onload =  Animation;
+
+  </script>
+  <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/styleMenu.css">
+  <style>
+
+   </style>
+ </head>
+    <body>      
+            <canvas id="canvas" width="100" height="100"></canvas>
+          
+        <div  class="fon"id="fon">
+            <div id="EndGameTable" style="display: none">
+                    <ul  class="OptionsGame align">
+                    <li><a class="menu "><span>game over</span></a></li>
+                    <li><aclass="menu" id=resultScore>result:0</a></li>
+                    <li><a class="link" onclick="records()">share</a></li>
+                    <li><a class="link" onclick="ContinueGame()">play again</a></li>
+                    </ul>
+            
+            </div>
+          
+
+            <p id="cloud" class="cloudPosition"><img class="cloud" height="350px" src ="img/cloud1.png" ></p>
+            <div id="ImportantMenuDiv">
+        <h1 class="menu"><span>squirrel</span></h1>
+        
+        <div class="menu_div" >
+                
+        <ul id="mainMenu" class="OptionsGame">
+
+            <li><a class="link"onclick="startGame();"  >start game</a></li>
+           <li><a class="link" onclick="optionsGame()" >options</a></li>
+           <li><a class="link" onclick="closeGame()" >exit game</a></li>
+
+        </ul>
+        <ul id =optionMenu class="option_menu OptionsGame">
+            <li><a id="music_link" class="link"onclick="optionmenuMusic()"  >music: on</a></li>
+            <li><a id="sound_link" class="link"onclick="optionmenuSounds()"  >sounds: on</a></li>
+            <li><a id="back_link" class="link"onclick="optionmenuBack()"  >back</a></li>
+        </ul>
+        <ul id=NameMenu class="OptionsGame"style=display:none>
+            <li><a id="text_name" class="link OptionsGame"  >enter a name</a></li>
+            <li><input id="Nick" class="inputName" type="text" size="40"></li>
+            <li><a id="" class="link OptionsGame"onclick="TrueName()">ok</a></li>
+            <li><a id=back_name class="link OptionsGame" onclick="NameBack()">back</a></li>
+            </ul>
+
+            
+            
+            <audio id=soundClick>
+                <source src=sounds/click.wav>
+            </audio>
+            <audio id="fonMusic" autoplay loop>
+                <source src="sounds/fon_music.wav">
+            </audio>
+            <audio id="JumpSound">
+                <source src="sounds/jump.wav">
+            </audio>
+            <audio id="jetpack">
+                <source src ="sounds/jetpack.mp3">
+            </audio>
+
+        
+        </ul>
+        </div>
+        </div>
+        </div>
+        
+        <!--кнопки тача-->
+        <div id="touchRight"></div>
+        <div id="touchLeft"></div>
+        <div id="touchTop"></div>
+        
+    </body>
+    <script src="script/game.js"></script> 
+</html>
