@@ -1,0 +1,74 @@
+    ballH.posX+=ballH.speedX;
+            
+            
+           
+
+            ballH.posY+=ballH.speedY;
+            // вылетел ли мяч ниже пола?
+            if ( ballH.posY+ballH.height>areaH.height+17 ) {
+                ballH.speedY=-ballH.speedY;
+                ballH.posY=areaH.height-ballH.height+0;
+            }
+            // вылетел ли мяч выше потолка?
+            if ( ballH.posY<0 ) {
+                ballH.speedY=-ballH.speedY;
+                ballH.posY=0;
+            }
+
+
+
+
+
+
+
+            if(ballH.posY<=oneTop+ballH.OneSpeed&&ballH.posX<31  //27 позиция мячика, с которого начинается проверка (Если мячик левее 27 пикселей, и вне ракетки, останавливаем мячик)
+            ||ballH.posY>=oneTop+ballH.OneSpeed+100&&ballH.posX<31){//если мячик вне ракетки
+                if(ballH.speedX!=0&&ballH.speedY!=0){
+                
+                    ballH.TwoPlayerGol=ballH.TwoPlayerGol+1;
+                Goal.innerHTML=ballH.OnePlayerGol+":"+ballH.TwoPlayerGol;
+                }
+               
+                ballH.speedX=0;//убираем скорость перемещения
+                ballH.speedY=0;
+                
+            }
+            else {      //иначе отбиваем мячик
+                 // вылетел ли мяч левее стены?
+            if ( ballH.posX<0 ) { 
+              
+                ballH.speedX=-ballH.speedX;
+                ballH.posX=0;
+            }
+            }
+            
+
+
+
+
+             if((ballH.posY>=twoTop+ballH.TwoSpeed+playerHeight&&ballH.posX>=490)
+             ||(ballH.posY<=120+ballH.TwoSpeed&&ballH.posX>=490)){ //490 позиция мячика, с которого начинается проверка (Если мячик правее 490 пикселей, и вне ракетки, останавливаем мячик)
+                 
+                if(ballH.speedX!=0&&ballH.speedY!=0){//если мячик вне ракетки
+                    debugger;
+                    ballH.OnePlayerGol=ballH.OnePlayerGol+1;
+                    Goal.innerHTML=ballH.OnePlayerGol+":"+ballH.TwoPlayerGol;
+                }
+                
+                ballH.speedX=0;//убираем скорость перемещения
+                ballH.speedY=0;
+                
+            }
+            else {  //иначе отбиваем мячик
+                if ( ballH.posX+ballH.width>areaH.width+17 ) {// вылетел ли мяч правее стены?
+                        debugger;
+                        ballH.speedX=-ballH.speedX;
+                        ballH.posX=areaH.width-ballH.width;
+                }
+            }
+
+        ballH.update();
+ }
+
+    ballH.update();
+

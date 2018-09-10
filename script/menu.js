@@ -54,6 +54,23 @@ function TrueName(){
     }
 }
 
+
+function MainMenu(){
+    var menu_block =document.getElementById("ImportantMenuDiv");
+    var mainMenu =document.getElementById("mainMenu");
+    var table = document.getElementById("EndGameTable");
+    var NameMenu=document.getElementById("NameMenu");
+    var newBg =document.getElementById("fon");
+    table.style.display="none";
+    canvas.style.display="none";
+    newBg.style.backgroundImage="url('img/fon1.jpg')";
+    hash.stopGame = false;
+    menu_block.style.display="block";
+    mainMenu.style.display="block";
+    NameMenu.style.display="none";
+    hash.score=0;
+}
+
 function optionsGame(){ //скрывает тескт при нажатии настроек
     var menu_block =document.getElementById("mainMenu");
     var option_menu= document.getElementById("optionMenu");
