@@ -1,18 +1,33 @@
+function myRecord(){
+
+
+   
+   
+    var tableDivRecords = document.getElementById("tableDivRecords");
+    tableDivRecords.style.display="block";
+}
+
+function backTable(){
+    var tableDivRecords = document.getElementById("tableDivRecords");
+    tableDivRecords.style.display="none";
+}
+
 function  records(){
     var records = new function () {
         var StringName='GOVOR_TEST_INFO';
         var password; 
         var AjaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
         var recordsLength = 10;
-    
+        var tableDivRecords = document.getElementById("tableDivRecords");
+        EndGameTable=document.getElementById("EndGameTable");
         var userName= document.getElementById("Nick");
-        
         var score =hash.score;
          var recordStorage;
     
     // функция проверяет, наблал ли игрок достаточно очков, чтобы попасть в таблицу рекордов,
     // и возвращает это значение, добавляет его в таблицу
-       
+   
+    
     
         function UpdateStorage() {
             $.ajax({

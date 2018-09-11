@@ -27,7 +27,7 @@
                     <ul  class="OptionsGame align">
                     <li><a class="menu "><span>game over</span></a></li>
                     <li><aclass="menu" id=resultScore>result:0</a></li>
-                    <li><a class="link" onclick="records()">share</a></li>
+                    <li><a class="link" onclick="myRecord()">share</a></li>
                     <li><a class="link" onclick="ContinueGame()">play again</a></li>
                     <li><a class="link" onclick="MainMenu()">Back to main menu</a></li>
                     </ul>
@@ -36,6 +36,36 @@
           
 
             <p id="cloud" class="cloudPosition"><img class="cloud" height="350px" src ="img/cloud1.png" ></p>
+
+            <div id = "tableDivRecords">
+                    <table id = "tableRecords">
+                        <tr>
+                            <th>Number</th><th>Name</th><th>Score</th>
+                        </tr>
+
+                        <tr>
+                                <td>Number</td><td>Name</td><td>Score</td>
+                            </tr>
+                            <tr>
+                                    <td>Number</td><td>Name</td><td>Score</td>
+                                </tr>
+                                <tr>
+                                        <td>Number</td><td>Name</td><td>Score</td>
+                                    </tr>
+                                    <tr>
+                                            <td>Number</td><td>Name</td><td>Score</td>
+                                        </tr>
+                                        <tr>
+                                                <td>Number</td><td>Name</td><td>Score</td>
+                                            </tr>
+                                           
+                    </table>
+                    <ul  class="OptionsGame align">
+                            <li><a class="menu" id=resultScore onclick="backTable()"><span>back</span></a></li>
+                            </ul>
+
+                </div>
+
             <div id="ImportantMenuDiv">
         <h1 class="menu"><span>squirrel</span></h1>
         
