@@ -122,7 +122,7 @@ function Animation() {
           hash.score = hash.score + 1;
         }
         context.fillText("Score:" + hash.score, 10, 50);
-        
+
         //если очков 0, то белку не перемешаем
         if (hash.score == 0) {
           mass.foxSpeedOnMap = 400;
@@ -309,7 +309,7 @@ function Animation() {
       //анимация ловушек
 
 
-      
+
 
       for (var i = 0; i < pipeBlock.length; i++) {
 
@@ -317,10 +317,10 @@ function Animation() {
         context.drawImage(pipe, pipeBlock[i].x - pipeBlock[i].y + 500, canvas.height - bg.height + bg.height / 2.2);
         // соотношаем с экранов
         //если тач поддерживается, меняем соотношение
-       
-         
-          context.drawImage(pipeUp, pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -45-pipeUp.height);
-        
+
+
+        context.drawImage(pipeUp, pipeBlock[i].x, canvas.height - bg.height + bg.height / 2.2 - 45 - pipeUp.height);
+
         pipeBlock[i].x = pipeBlock[i].x - 1;
         if (pipeBlock[i].x == 990) {
           pipeBlock.push({
@@ -331,8 +331,8 @@ function Animation() {
         //условия попадание белки в висящую ловушку
         if (mass.foxSpeedOnMap >= pipeBlock[i].x - 50 // 50- ширина белки
           && mass.foxSpeedOnMap <= pipeBlock[i].x + pipeUp.width - 50
-          && hash.poxYJumbSq <=  (pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -65)  //pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -65 - высота верхней части ловушки без учета цепи
-          && hash.poxYJumbSq >= (pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -235)) {//pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -235 - высота нижней части ловушки
+          && hash.poxYJumbSq <= (pipeBlock[i].x, canvas.height - bg.height + bg.height / 2.2 - 65)  //pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -65 - высота верхней части ловушки без учета цепи
+          && hash.poxYJumbSq >= (pipeBlock[i].x, canvas.height - bg.height + bg.height / 2.2 - 235)) {//pipeBlock[i].x,canvas.height - bg.height+ bg.height / 2.2 -235 - высота нижней части ловушки
           if (hash.score <= 100) {
             mass.foxSpeedOnMap = mass.foxSpeedOnMap;
           }
@@ -345,7 +345,7 @@ function Animation() {
         //условия попадание белки в обычную ловушку
         if (mass.foxSpeedOnMap + 40 >= (pipeBlock[i].x - pipeBlock[i].y + 500)
           && mass.foxSpeedOnMap <= (pipeBlock[i].x - pipeBlock[i].y + 500 + pipe.width)
-          && hash.poxYJumbSq >= (canvas.height - bg.height+ bg.height / 2.2-30)) {
+          && hash.poxYJumbSq >= (canvas.height - bg.height + bg.height / 2.2 - 30)) {
           if (hash.score <= 100) {
             mass.foxSpeedOnMap = mass.foxSpeedOnMap;
           }

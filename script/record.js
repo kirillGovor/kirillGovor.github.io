@@ -1,59 +1,59 @@
-function myRecord(){
-   var tableDivRecords = document.getElementById("tableDivRecords");
-    tableDivRecords.style.display="block";
-}
-
-function backTable(){
+function myRecord() {
     var tableDivRecords = document.getElementById("tableDivRecords");
-    tableDivRecords.style.display="none";
+    tableDivRecords.style.display = "block";
 }
 
-function  records(){
+function backTable() {
+    var tableDivRecords = document.getElementById("tableDivRecords");
+    tableDivRecords.style.display = "none";
+}
+
+function records() {
     var records = new function () {
-        var StringName='GOVOR_TEST_INFO';
-        var password; 
+        var StringName = 'GOVOR_TEST_INFO';
+        var password;
         var AjaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
         var recordsLength = 10;
         var tableDivRecords = document.getElementById("tableDivRecords");
-        EndGameTable=document.getElementById("EndGameTable");
-        var userName= document.getElementById("Nick");
-        var score =hash.score;
-         var recordStorage;
-    
-    // функция проверяет, наблал ли игрок достаточно очков, чтобы попасть в таблицу рекордов,
-    // и возвращает это значение, добавляет его в таблицу
-   
-    
-    
+        EndGameTable = document.getElementById("EndGameTable");
+        var userName = document.getElementById("Nick");
+        var score = hash.score;
+        var recordStorage;
+
+        // функция проверяет, наблал ли игрок достаточно очков, чтобы попасть в таблицу рекордов,
+        // и возвращает это значение, добавляет его в таблицу
+
+
+
         function UpdateStorage() {
             $.ajax({
-                    url: AjaxHandlerScript,
-                    type: 'POST',
-                    data: {
-                        f: 'UPDATE', n: StringName,
-                        v: JSON.stringify(userName,score), p: password
-                    },
-                    cache: false,
-                    success: UpdateReady,
-                    error: ErrorHandler
-                }
+                url: AjaxHandlerScript,
+                type: 'POST',
+                data: {
+                    f: 'UPDATE', n: StringName,
+                    v: JSON.stringify(userName, score), p: password
+                },
+                cache: false,
+                success: UpdateReady,
+                error: ErrorHandler
+            }
             );
         }
-    
-    
+
+
         function LoadStorage() {
             $.ajax({
-                    url: AjaxHandlerScript,
-                    type: 'POST',
-                    data: {f: 'READ', n: StringName},
-                    cache: false,
-                    success: ReadReady,
-                    error: ErrorHandler
-                }
+                url: AjaxHandlerScript,
+                type: 'POST',
+                data: { f: 'READ', n: StringName },
+                cache: false,
+                success: ReadReady,
+                error: ErrorHandler
+            }
             );
         }
-    
-    // функция получает сообщения и показывает их в виде таблицы
+
+        // функция получает сообщения и показывает их в виде таблицы
         function ReadReady(ResultH) {
             if (ResultH.error != undefined)
                 alert("Извините, таблицы рекордов временно недоступны.\n" + ResultH.error);
@@ -62,9 +62,9 @@ function  records(){
                 ShowTable();
             }
         }
-    
-    
-    // вывод сообщения об ошибке при записи
+
+
+        // вывод сообщения об ошибке при записи
         function UpdateReady(ResultH) {
             if (ResultH.error != undefined) {
                 alert("Извините, таблицы рекордов временно недоступны.\n" + ResultH.error);
@@ -72,13 +72,13 @@ function  records(){
                 lePetitWorld.toggleSaveControls(false);
             }
         }
-    
-    //вывод сообщения об ошибке
+
+        //вывод сообщения об ошибке
         function ErrorHandler(jqXHR, StatusStr, ErrorStr) {
             alert("Извините, таблицы рекордов временно недоступны.\n" + StatusStr + ' ' + ErrorStr);
         }
-    
-    
+
+
     };
 
 

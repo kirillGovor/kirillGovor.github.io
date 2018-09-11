@@ -164,8 +164,6 @@ document.onmousedown = function () {
 
 
 
-
-
 ///Убрать выделение тексат мышкой (НА половину работает :)
 
 function preventSelection(element) {

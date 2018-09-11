@@ -124,9 +124,9 @@ document.body.onkeydown = function (e) { //событие нажатия кно�
     }
   }
   if (e.keyCode == 38 || e.keyCode == 87) {
-    
-      mass.foxSpeed = 3;
-    
+
+    mass.foxSpeed = 3;
+
   }
   if (e.keyCode == 83 || e.keyCode == 40) {
     // mass.foxSpeed = 1111;
@@ -160,7 +160,7 @@ document.body.onkeyup = function (e) { //событие отпускания к�
   }
 
 };
-window.onbeforeunload = function() {
+window.onbeforeunload = function () {
   return "Данные не сохранены. Точно перейти?";
 };
 
