@@ -1,9 +1,5 @@
 function myRecord(){
-
-
-   
-   
-    var tableDivRecords = document.getElementById("tableDivRecords");
+   var tableDivRecords = document.getElementById("tableDivRecords");
     tableDivRecords.style.display="block";
 }
 
