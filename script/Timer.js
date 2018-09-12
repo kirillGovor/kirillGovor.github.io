@@ -78,7 +78,7 @@ function Animation() {
   }
 
 
-
+  
 
   if (hash.stopGame == false) {// если игра не закончилась
     var topSqPosition = canvas.height - bg.height + bg.height / 2.6; // высота белки
@@ -364,6 +364,7 @@ function Animation() {
   else {
 
     if (canvas.width < 512) {
+      
       if (hash.vibroPhone == 0) {
 
         try {

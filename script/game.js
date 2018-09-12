@@ -53,7 +53,7 @@ var mass = {
   foxSpeedOnMap: 320,
   JumpFox: canvas.height - bg.height,
   counterJumpFox: 0,
-
+ 
 }
 
 
