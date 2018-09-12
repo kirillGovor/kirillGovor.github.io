@@ -9,77 +9,66 @@ function backTable() {
 }
 
 function records() {
-    var records = new function () {
-        var StringName = 'GOVOR_TEST_INFO';
-        var password;
-        var AjaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
-        var recordsLength = 10;
-        var tableDivRecords = document.getElementById("tableDivRecords");
-        EndGameTable = document.getElementById("EndGameTable");
-        var userName = document.getElementById("Nick");
-        var score = hash.score;
-        var recordStorage;
+  
+var ajaxHandlerScript="https://fe.it-academy.by/AjaxStringStorage2.php";
+var updatePassword;
+var stringName='GOVOR_TEST_INFO';
+var Nick = document.getElementById("Nick");
 
-        // функция проверяет, наблал ли игрок достаточно очков, чтобы попасть в таблицу рекордов,
-        // и возвращает это значение, добавляет его в таблицу
+    updatePassword=Math.random();
+    $.ajax( {
+            url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
+            data : { f : 'LOCKGET', n : stringName, p : updatePassword },
+            success : lockGetReady, error : errorHandler
+        }
+    );
 
 
-
-        function UpdateStorage() {
-            $.ajax({
-                url: AjaxHandlerScript,
-                type: 'POST',
-                data: {
-                    f: 'UPDATE', n: StringName,
-                    v: JSON.stringify(userName, score), p: password
-                },
-                cache: false,
-                success: UpdateReady,
-                error: ErrorHandler
+function lockGetReady(callresult) {
+    if ( callresult.error!=undefined )
+        alert(callresult.error); 
+    else {
+        // нам всё равно, что было прочитано - 
+        // всё равно перезаписываем
+        var info={
+            name : Nick.value,
+            score : hash.score
+        };
+        
+        $.ajax( {
+                url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
+                data : { f : 'UPDATE', n : stringName, v : JSON.stringify(info), p : updatePassword },
+                success : updateReady, error : errorHandler
             }
-            );
+        );
+    }
+}
+
+function updateReady(callresult) {
+    if ( callresult.error!=undefined )
+        alert(callresult.error); 
+}
+
+function restoreInfo() {
+    $.ajax(
+        {
+            url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
+            data : { f : 'READ', n : stringName },
+            success : readReady, error : errorHandler
         }
+    );
+}
 
+function readReady(callresult) {
+    var table=document.getElementsByTagName("tr");
+    for (var i =1;i<=5;i++){
+    table[i].innerHTML="<td>"+i+"</td><td>"+Nick.value+"</td><td>"+hash.score+"</td>";
+}
+}
 
-        function LoadStorage() {
-            $.ajax({
-                url: AjaxHandlerScript,
-                type: 'POST',
-                data: { f: 'READ', n: StringName },
-                cache: false,
-                success: ReadReady,
-                error: ErrorHandler
-            }
-            );
-        }
+function errorHandler(jqXHR,statusStr,errorStr) {
+    alert(statusStr+' '+errorStr);
+}
 
-        // функция получает сообщения и показывает их в виде таблицы
-        function ReadReady(ResultH) {
-            if (ResultH.error != undefined)
-                alert("Извините, таблицы рекордов временно недоступны.\n" + ResultH.error);
-            else {
-                recordStorage = tableFromString(ResultH.result);
-                ShowTable();
-            }
-        }
-
-
-        // вывод сообщения об ошибке при записи
-        function UpdateReady(ResultH) {
-            if (ResultH.error != undefined) {
-                alert("Извините, таблицы рекордов временно недоступны.\n" + ResultH.error);
-            } else {
-                lePetitWorld.toggleSaveControls(false);
-            }
-        }
-
-        //вывод сообщения об ошибке
-        function ErrorHandler(jqXHR, StatusStr, ErrorStr) {
-            alert("Извините, таблицы рекордов временно недоступны.\n" + StatusStr + ' ' + ErrorStr);
-        }
-
-
-    };
-
-
+restoreInfo();
 }
