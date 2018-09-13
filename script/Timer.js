@@ -376,7 +376,12 @@ function Animation() {
           // обработка ошибки
 
         }
-
+        var leftTouch = document.getElementById("touchLeft");
+        var topTouch = document.getElementById("touchTop");
+        var RightTouch = document.getElementById("touchRight");
+        leftTouch.style.display="none";
+        topTouch.style.display="none";
+        RightTouch.style.display="none";
         hash.vibroPhone = 1;
         records();
       }
@@ -405,7 +410,12 @@ function Animation() {
 
         }
 
-
+        var leftTouch = document.getElementById("touchLeft");
+        var topTouch = document.getElementById("touchTop");
+        var RightTouch = document.getElementById("touchRight");
+        leftTouch.style.display="none";
+        topTouch.style.display="none";
+        RightTouch.style.display="none";
         hash.vibroPhone = 1;
         records();
       }
@@ -433,6 +443,12 @@ function Animation() {
 }
 // начать игру при нажатии клавиши играть снова
 function ContinueGame() {
+  var leftTouch = document.getElementById("touchLeft");
+        var topTouch = document.getElementById("touchTop");
+        var RightTouch = document.getElementById("touchRight");
+        leftTouch.style.display="block";
+        topTouch.style.display="block";
+        RightTouch.style.display="block";
   hash.vibroPhone = 0;
   var table = document.getElementById("EndGameTable");
   table.style.display = "none";

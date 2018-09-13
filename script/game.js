@@ -59,9 +59,9 @@ var mass = {
 
 //тач события
 if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
-  leftTouch = document.getElementById("touchLeft");
-  topTouch = document.getElementById("touchTop");
-  RightTouch = document.getElementById("touchRight");
+  var leftTouch = document.getElementById("touchLeft");
+  var topTouch = document.getElementById("touchTop");
+  var RightTouch = document.getElementById("touchRight");
 
 
 
