@@ -28,13 +28,19 @@ function lockGetReady(callresult) {
     if ( callresult.error!=undefined )
         alert(callresult.error); 
     else {
-        // нам всё равно, что было прочитано - 
-        // всё равно перезаписываем
+
+        var test = {
+            rec:JSON.parse(callresult.result),
+        }
+
         var info={
-            name : Nick.value,
-            score : hash.score
+           name : test.rec.name + Nick.value+"$",
+           score :test.rec.score + hash.score+"$",
+
         };
-        
+       
+     
+        var k="";
         $.ajax( {
                 url : ajaxHandlerScript, type : 'POST', cache : false, dataType:'json',
                 data : { f : 'UPDATE', n : stringName, v : JSON.stringify(info), p : updatePassword },
@@ -61,14 +67,53 @@ function restoreInfo() {
 
 function readReady(callresult) {
     var table=document.getElementsByTagName("tr");
+    var test = {
+        rec:JSON.parse(callresult.result),
+    }
+    var nameP=test.rec.name.split("$");
+    var scoreP=test.rec.score.split("$");
+
+
+
+    for (var a = 0, endI = scoreP.length - 1; a < endI; a++) { //сортировка пузырьком чисел
+        for (var j = 0, endJ = endI - a; j < endJ; j++) {
+            if (scoreP[j] < scoreP[j + 1]) {
+                scoreP[j]=Number(scoreP[j]);
+                scoreP[j+1]=Number(scoreP[j+1]);
+                var swap = scoreP[j];
+                var nameKey=nameP[j];
+                nameP[j]=nameP[j+1];
+                nameP[j+1]= nameKey;
+                scoreP[j] = scoreP[j + 1];
+                scoreP[j + 1] = swap;
+            }
+        }
+    }
+
+
+
+
     for (var i =1;i<=5;i++){
-    table[i].innerHTML="<td>"+i+"</td><td>"+Nick.value+"</td><td>"+hash.score+"</td>";
+    table[i].innerHTML="<td>"+i+"</td><td>"+nameP[i-1]+"</td><td>"+scoreP[i-1]+"</td>";
 }
+
+
+
+
+
+
+
+
 }
 
 function errorHandler(jqXHR,statusStr,errorStr) {
     alert(statusStr+' '+errorStr);
 }
+
+function compareNumeric(a, b) {
+    if (a > b) return 1;
+    if (a < b) return -1;
+  }
 
 restoreInfo();
 }

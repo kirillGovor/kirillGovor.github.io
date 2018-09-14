@@ -397,7 +397,7 @@ function Animation() {
       if (hash.vibroPhone == 0) {
 
         try {
-
+          records();
           navigator.vibrate(500);
 
         } catch (err) {
@@ -412,7 +412,7 @@ function Animation() {
         topTouch.style.display = "none";
         RightTouch.style.display = "none";
         hash.vibroPhone = 1;
-        records();
+        
       }
       var table = document.getElementById("EndGameTable");
       table.style.display = "block";
@@ -430,7 +430,7 @@ function Animation() {
       if (hash.vibroPhone == 0) {
 
         try {
-
+          records();
           navigator.vibrate(500);
 
         } catch (err) {
@@ -446,7 +446,7 @@ function Animation() {
         topTouch.style.display = "none";
         RightTouch.style.display = "none";
         hash.vibroPhone = 1;
-        records();
+        
       }
       var table = document.getElementById("EndGameTable");
       table.style.display = "block";
