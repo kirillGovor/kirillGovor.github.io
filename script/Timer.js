@@ -98,6 +98,9 @@ function Animation() {
 
       //на месте
       if (mass.foxSpeed == 0) {
+         //звук бега
+         run = document.getElementById("run");
+         run.pause();
         //чистим canvas
         context.clearRect(0, 0, canvas.width, canvas.height);
         // движение земли 
@@ -148,6 +151,10 @@ function Animation() {
 
       //в лево
       if (mass.foxSpeed == 1) {
+        //звук бега
+        run = document.getElementById("run");
+        run.play();
+        //чистим canvas
         context.clearRect(0, 0, canvas.width, canvas.height)
         // движение земли 
         context.drawImage(bg, hash.PosXSq, canvas.height - bg.height);
@@ -182,6 +189,9 @@ function Animation() {
 
       //в право
       if (mass.foxSpeed == 2) {
+         //звук бега
+         run = document.getElementById("run");
+         run.play();
         context.clearRect(0, 0, canvas.width, canvas.height)
         // движение земли 
         context.drawImage(bg, hash.PosXSq, canvas.height - bg.height);
@@ -220,6 +230,9 @@ function Animation() {
 
       //вверх
       if (mass.foxSpeed == 3) {
+         //звук бега
+         run = document.getElementById("run");
+         run.pause();
         //включаем звук джетпака
         jetpack = document.getElementById("jetpack");
         jetpack.play();
