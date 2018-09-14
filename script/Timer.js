@@ -113,7 +113,12 @@ function Animation() {
         context.drawImage(fox, 0, 0, 40, 55, mass.foxSpeedOnMap, topSqPosition, 60, 80);
         hash.poxYJumbSq = canvas.height - bg.height + bg.height / 2.6;
         if (hash.score == 0) {
-          mass.foxSpeedOnMap = 400;
+          if (canvas.width<500){
+            mass.foxSpeedOnMap = 250;
+          }
+          else{
+            mass.foxSpeedOnMap = 400;
+          }
         }
         //обновляем подсчет очков
         context.font = "30px Luckiest Guy";
@@ -126,7 +131,12 @@ function Animation() {
 
         //если очков 0, то белку не перемешаем
         if (hash.score == 0) {
-          mass.foxSpeedOnMap = 400;
+          if (canvas.width<500){
+            mass.foxSpeedOnMap = 250;
+          }
+          else{
+            mass.foxSpeedOnMap = 400;
+          }
         }
         //если белка зашла за границу, заканчиваем игру
         if (mass.foxSpeedOnMap < 2) {
@@ -483,7 +493,13 @@ function ContinueGame() {
   hash.vibroPhone = 0;
   var table = document.getElementById("EndGameTable");
   table.style.display = "none";
-  mass.foxSpeedOnMap = 400;
+  if (canvas.width<500){
+    mass.foxSpeedOnMap = 250;
+  }
+  else{
+    mass.foxSpeedOnMap = 400;
+  }
+  
   hash.stopGame = false;
   hash.score = 0;
 }

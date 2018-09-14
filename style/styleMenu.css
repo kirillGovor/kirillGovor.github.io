@@ -168,9 +168,7 @@ html{
         }
       
     }
-    @media (max-height:500px){
- 
-    }
+   
    
     @media  (max-height: 780px){
         .cloudPosition{
@@ -210,4 +208,16 @@ html{
         .menu{
             margin-top: 0px;
         }
+    }
+
+    @media (max-width:650px){
+        th{font-size: 20px;}
+        tr{font-size: 20px;}
+        td{font-size: 20px;}
+    }
+
+    @media (max-width:550px){
+        th{font-size: 15px;}
+        tr{font-size: 15px;}
+        td{font-size: 15px;}
     }
