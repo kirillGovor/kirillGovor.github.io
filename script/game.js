@@ -33,7 +33,7 @@ pipeIron.src = "img/PipeSpearsIron.gif"
 pipeUp.src = "img/pipeUp.gif";
 foxZerkal.src = "img/squirrelZerkal.png";
 foxDown.src = "img/squirrel.gif";
-fire.src="img/fire.gif";
+fire.src = "img/fire.gif";
 
 var xPosFox = 10;
 var yPoxFox = canvas.height - bg.height;
@@ -57,11 +57,11 @@ var mass = {
   foxSpeed: 0,
   tickCount: 0,
   stepFox: 0,
-  stepFire:0,
+  stepFire: 0,
   foxSpeedOnMap: 320,
   JumpFox: canvas.height - bg.height,
   counterJumpFox: 0,
- 
+
 }
 
 

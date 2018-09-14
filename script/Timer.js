@@ -98,9 +98,9 @@ function Animation() {
 
       //на месте
       if (mass.foxSpeed == 0) {
-         //звук бега
-         run = document.getElementById("run");
-         run.pause();
+        //звук бега
+        run = document.getElementById("run");
+        run.pause();
         //чистим canvas
         context.clearRect(0, 0, canvas.width, canvas.height);
         // движение земли 
@@ -116,10 +116,10 @@ function Animation() {
         context.drawImage(fox, 0, 0, 40, 55, mass.foxSpeedOnMap, topSqPosition, 60, 80);
         hash.poxYJumbSq = canvas.height - bg.height + bg.height / 2.6;
         if (hash.score == 0) {
-          if (canvas.width<500){
+          if (canvas.width < 500) {
             mass.foxSpeedOnMap = 250;
           }
-          else{
+          else {
             mass.foxSpeedOnMap = 400;
           }
         }
@@ -134,10 +134,10 @@ function Animation() {
 
         //если очков 0, то белку не перемешаем
         if (hash.score == 0) {
-          if (canvas.width<500){
+          if (canvas.width < 500) {
             mass.foxSpeedOnMap = 250;
           }
-          else{
+          else {
             mass.foxSpeedOnMap = 400;
           }
         }
@@ -189,9 +189,9 @@ function Animation() {
 
       //в право
       if (mass.foxSpeed == 2) {
-         //звук бега
-         run = document.getElementById("run");
-         run.play();
+        //звук бега
+        run = document.getElementById("run");
+        run.play();
         context.clearRect(0, 0, canvas.width, canvas.height)
         // движение земли 
         context.drawImage(bg, hash.PosXSq, canvas.height - bg.height);
@@ -230,9 +230,9 @@ function Animation() {
 
       //вверх
       if (mass.foxSpeed == 3) {
-         //звук бега
-         run = document.getElementById("run");
-         run.pause();
+        //звук бега
+        run = document.getElementById("run");
+        run.pause();
         //включаем звук джетпака
         jetpack = document.getElementById("jetpack");
         jetpack.play();
@@ -435,7 +435,7 @@ function Animation() {
         topTouch.style.display = "none";
         RightTouch.style.display = "none";
         hash.vibroPhone = 1;
-        
+
       }
       var table = document.getElementById("EndGameTable");
       table.style.display = "block";
@@ -469,7 +469,7 @@ function Animation() {
         topTouch.style.display = "none";
         RightTouch.style.display = "none";
         hash.vibroPhone = 1;
-        
+
       }
       var table = document.getElementById("EndGameTable");
       table.style.display = "block";
@@ -506,13 +506,13 @@ function ContinueGame() {
   hash.vibroPhone = 0;
   var table = document.getElementById("EndGameTable");
   table.style.display = "none";
-  if (canvas.width<500){
+  if (canvas.width < 500) {
     mass.foxSpeedOnMap = 250;
   }
-  else{
+  else {
     mass.foxSpeedOnMap = 400;
   }
-  
+
   hash.stopGame = false;
   hash.score = 0;
 }
