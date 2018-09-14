@@ -34,12 +34,10 @@ function TrueName() {
     }
     else {
         var ImportantMenuDiv = document.getElementById("ImportantMenuDiv");
-        var music=document.getElementById("fonMusic");
         ImportantMenuDiv.style.display = "none";
         canvas.style.display = "block";
         var newBg = document.getElementById("fon");
         newBg.style.backgroundImage = "url('img/fon2.jpg')";
-        music.play();
 
 
 

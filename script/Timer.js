@@ -38,6 +38,7 @@ var hash = {
   poxYJumbSq: 0,
   poxYJumbSqEnd: 3,
   vibroPhone: 0,
+  fireTimer: 0,
 }
 //анимация облочек
 
@@ -78,7 +79,7 @@ function Animation() {
   }
 
 
-  
+
 
   if (hash.stopGame == false) {// если игра не закончилась
     var topSqPosition = canvas.height - bg.height + bg.height / 2.6; // высота белки
@@ -153,6 +154,7 @@ function Animation() {
         if (mass.stepFox >= 540) {
           mass.stepFox = 0;
         }
+
         //обновляем подсчет очков
         context.font = "30px Luckiest Guy";
         context.fillStyle = "black"
@@ -200,6 +202,9 @@ function Animation() {
         if (mass.foxSpeedOnMap < 2) {
           hash.stopGame = true;
         }
+        if (mass.foxSpeedOnMap >= canvas.width - 55) {//если белка зашла за границу слева
+          mass.foxSpeedOnMap = mass.foxSpeedOnMap - 15;
+        }
       }
 
 
@@ -238,6 +243,12 @@ function Animation() {
         if (mass.foxSpeedOnMap < 2) {
           hash.stopGame = true;
         }
+        if (mass.foxSpeedOnMap > canvas.width - 55) {
+          mass.foxSpeedOnMap = mass.foxSpeedOnMap - 1;
+        }
+        if (hash.poxYJumbSq < 0) {
+          hash.poxYJumbSq = hash.poxYJumbSq + 5;
+        }
       }
 
 
@@ -264,13 +275,14 @@ function Animation() {
         }
         context.fillText("Score:" + hash.score, 10, 50);
         //обновляем белку
-        context.drawImage(fox, 265, 130, 46, 80, mass.foxSpeedOnMap, hash.poxYJumbSq, 70, 100);
+        context.drawImage(foxDown, 265, 130, 46, 80, mass.foxSpeedOnMap, hash.poxYJumbSq, 70, 100);
         if (hash.poxYJumbSq == 0) {
           hash.poxYJumbSq = canvas.height - bg.height + bg.height / 2.6;
         }
         //если белка достигла земли
         else if (hash.poxYJumbSq >= canvas.height - bg.height + bg.height / 2.6) {
           context.clearRect(0, 0, canvas.width, canvas.height);
+
 
           // движение земли 
           context.drawImage(bg, hash.PosXSq, canvas.height - bg.height);
@@ -287,7 +299,7 @@ function Animation() {
             hash.score = hash.score + 1;
           }
           context.fillText("Score:" + hash.score, 10, 50);
-
+          //рисуем белку
           context.drawImage(fox, 0, 0, 40, 55, mass.foxSpeedOnMap, topSqPosition, 60, 80);
           mass.foxSpeed = 0;
           var soundJump = document.getElementById("JumpSound");
@@ -302,6 +314,19 @@ function Animation() {
           hash.stopGame = true;
         }
 
+      }
+
+      //рисуем огонь
+      context.drawImage(fire, mass.stepFire, 10, 80, 100, -10, canvas.height - bg.height + bg.height / 2.250, 70, 100);
+
+      if (mass.stepFire > 550) {
+        mass.stepFire = 0;
+      }
+      //уменьшаем смену кадров для огня
+      hash.fireTimer = hash.fireTimer + 3;
+      if (hash.fireTimer > 6) {
+        hash.fireTimer = 0;
+        mass.stepFire = mass.stepFire + 73;
       }
 
 
@@ -353,7 +378,11 @@ function Animation() {
             hash.stopGame = true;
           }
         }
-
+        if (hash.score <= 100) { //если меньше 100 очков, то очки горят красным
+          context.font = "30px Luckiest Guy";
+          context.fillStyle = "red";
+          context.fillText("Score:" + hash.score, 10, 50);
+        }
 
       }
 
@@ -364,7 +393,7 @@ function Animation() {
   else {
 
     if (canvas.width < 512) {
-      
+
       if (hash.vibroPhone == 0) {
 
         try {
@@ -379,9 +408,9 @@ function Animation() {
         var leftTouch = document.getElementById("touchLeft");
         var topTouch = document.getElementById("touchTop");
         var RightTouch = document.getElementById("touchRight");
-        leftTouch.style.display="none";
-        topTouch.style.display="none";
-        RightTouch.style.display="none";
+        leftTouch.style.display = "none";
+        topTouch.style.display = "none";
+        RightTouch.style.display = "none";
         hash.vibroPhone = 1;
         records();
       }
@@ -413,9 +442,9 @@ function Animation() {
         var leftTouch = document.getElementById("touchLeft");
         var topTouch = document.getElementById("touchTop");
         var RightTouch = document.getElementById("touchRight");
-        leftTouch.style.display="none";
-        topTouch.style.display="none";
-        RightTouch.style.display="none";
+        leftTouch.style.display = "none";
+        topTouch.style.display = "none";
+        RightTouch.style.display = "none";
         hash.vibroPhone = 1;
         records();
       }
@@ -443,12 +472,14 @@ function Animation() {
 }
 // начать игру при нажатии клавиши играть снова
 function ContinueGame() {
-  var leftTouch = document.getElementById("touchLeft");
-        var topTouch = document.getElementById("touchTop");
-        var RightTouch = document.getElementById("touchRight");
-        leftTouch.style.display="block";
-        topTouch.style.display="block";
-        RightTouch.style.display="block";
+  if (('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch) {
+    var leftTouch = document.getElementById("touchLeft");
+    var topTouch = document.getElementById("touchTop");
+    var RightTouch = document.getElementById("touchRight");
+    leftTouch.style.display = "block";
+    topTouch.style.display = "block";
+    RightTouch.style.display = "block";
+  }
   hash.vibroPhone = 0;
   var table = document.getElementById("EndGameTable");
   table.style.display = "none";

@@ -21,12 +21,19 @@ var pipeUp = new Image(); //копья сверху
 
 var foxZerkal = new Image(); // белка отраженная в другую сторону
 
+var foxDown = new Image(); //белка, опущенная вниз без огня
+
+var fire = new Image(); //спрайт огня
+
+
 fox.src = "img/squirrel.png";
 bg.src = "img/fon_bg.gif";
 pipe.src = "img/PipeSpears.gif";
 pipeIron.src = "img/PipeSpearsIron.gif"
 pipeUp.src = "img/pipeUp.gif";
 foxZerkal.src = "img/squirrelZerkal.png";
+foxDown.src = "img/squirrel.gif";
+fire.src="img/fire.gif";
 
 var xPosFox = 10;
 var yPoxFox = canvas.height - bg.height;
@@ -50,6 +57,7 @@ var mass = {
   foxSpeed: 0,
   tickCount: 0,
   stepFox: 0,
+  stepFire:0,
   foxSpeedOnMap: 320,
   JumpFox: canvas.height - bg.height,
   counterJumpFox: 0,
@@ -104,7 +112,7 @@ if (('ontouchstart' in window) || window.DocumentTouch && document instanceof Do
 
 
 
-//1-бег в лево 2-бег в право 3- прыжок вверх
+//1-бег в лево 2-бег в право 3- прыжок вверх 4-опускание вниз
 document.body.onkeydown = function (e) { //событие нажатия кнопок
   e = event || window.event;
 
