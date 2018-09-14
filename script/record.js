@@ -62,7 +62,7 @@ function restoreInfo() {
 function readReady(callresult) {
     var table=document.getElementsByTagName("tr");
     for (var i =1;i<=5;i++){
-    table[i].innerHTML="<td>"+i+"</td><td>"+Nick.value+"</td><td>"+hash.score+"</td>";
+    table[i].innerHTML="<td>"+i+"</td><td>"+info.name+"</td><td>"+infor.score+"</td>";
 }
 }
 
