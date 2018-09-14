@@ -141,6 +141,8 @@ document.onmousedown = function () {
         jetpack.volume = "0";
         var soundJump = document.getElementById("JumpSound");
         soundJump.volume = "0";
+        var run= document.getElementById("run");
+        run.volume="0";
     }
     else {
         var soundClick = document.getElementById('soundClick');
@@ -149,6 +151,8 @@ document.onmousedown = function () {
         jetpack.volume = "1";
         var soundJump = document.getElementById("JumpSound");
         soundJump.volume = "1";
+        var run= document.getElementById("run");
+        run.volume="1";
     }
 }
 
