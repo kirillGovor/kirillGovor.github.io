@@ -67,13 +67,16 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-manifest-plugin": "2.0.4",
-    "workbox-webpack-plugin": "3.6.3"
+    "workbox-webpack-plugin": "3.6.3",
+    "homepage": "https://kirillgovor.github.io/filmStore/"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "jest",
-    "homepage": "https://kirillgovor.github.io//filmStore"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "homepage": "https://kirillgovor.github.io/filmStore/"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -137,9 +140,11 @@
     "babel-jest": "^23.6.0",
     "enzyme": "^3.8.0",
     "enzyme-to-json": "^3.3.5",
+    "gh-pages": "^2.0.1",
     "install": "^0.12.2",
     "jest": "^23.6.0",
     "npm": "^6.5.0",
     "react-addons-test-utils": "^15.6.2"
+   
   }
 }
