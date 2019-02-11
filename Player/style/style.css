@@ -1,0 +1,232 @@
+body{
+    margin:0;
+    padding:0;
+}
+.header{
+    margin: 0;
+    padding: 0;
+
+}
+.base{
+    background-image: url("../images/Base.png");
+    width: 300px;
+    height: 220px;
+    position: absolute;
+    background-size:cover;
+    left: 0;
+    top: 0;
+}
+#button_on_off{
+    position: absolute;
+    left: 20.5%;
+    top: 87%;
+    width: 15%;
+    height: 3%;
+    font-size: 1vw;
+}
+.pickup{
+    background-image: url("../images/3.png");
+    position: absolute;
+     width: 35px;
+    height: 150px;
+    background-size:cover;
+    left: 205px;
+    top: 0;
+    transform-origin: center top;
+    transition: 0.3s;
+    
+   
+}
+.disk{
+    background-image: url("../images/1.png");
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-size:cover;
+    left: 8px;
+    top: 11px;
+  
+}
+.disk_div{
+    width: 200px;
+    height: 200px;
+}
+
+.tracks{
+    
+    background: url("../images/Note.png") no-repeat;
+    background-size: contain;
+    width: 50%;
+    margin: auto;
+    height: 800px;
+}
+.tracks p {
+    font-size: 2vw;
+}
+.imageTrack{
+display: float;
+width: 30px;
+height: 30px;
+}
+
+.Track1:focus{
+    background-color: #e2d4c0;
+    color:white;
+}
+.playing_bar{
+transition: 0.3s;
+margin-left: 10%;
+margin-right: 10%;
+border: solid 1px transparent;
+font-size: 1vw;
+margin-bottom: 10%;
+}
+.playing_bar:hover{
+    border: solid 1px  black;
+    
+}
+.playlist{
+    margin-left: 10%;
+    margin-top:10px;
+}
+svg{
+    position: absolute;
+    top: 0;
+    fill: white;
+}
+
+.button_volume{
+    background-image: url("../images/Button_volume.png");
+    position: absolute;
+    width: 50px;
+    height: 60px;
+    background-size:cover;
+    left: 240px;
+    top: 100px;
+}
+
+
+
+.newDesignDisk {
+
+    width: 100%;
+    
+    position: relative;
+    
+    /*padding: 50% 0; /*сумма верхнего и нижнего паддинга = отношение к ширине блока. В примере — 100%, тоесть высота:ширина = 1:1*/
+    
+    }
+    
+    .newDesignDisk .chidiskDesugnld { 
+    
+    position: absolute;  /* убираем влияние ребенка на высоту блока и позиционируем на место родителя*/
+    
+    height: 100rem;
+    
+    width:100rem;
+    
+    top: 0;
+    
+    left: 0;
+    background-color: rebeccapurple;
+    
+    }
+    .vinilPlayer{
+        width: 100%;
+    }
+    .newPicup{
+        position: absolute;
+        left: 54%;
+        width: 34%;
+        top: 10%;
+        transform-origin: 60% 25%;
+        transition: 0.3s;
+        transform: rotate(-20deg);
+    }
+    .NewDisk{
+        position: absolute;
+        left: 16.4%;
+        top: 12.88%;
+        width: 52%;
+        
+    }
+    #tracktime{
+        position: absolute;
+        left: 40%;
+        top: 87%;
+        color: red;
+        font-size: 2vw;
+        width: 17%;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .9), -23px 0 20px -23px rgba(0, 0, 0, .9), 23px 0 20px -23px rgba(0, 0, 0, .9), 0 0 40px rgba(0, 0, 0, .2) inset;
+    }
+#rangeVolume{
+    position: absolute;
+    left: 78%;
+    top: 88.5%;
+    width: 5%;
+}
+.volumeText{
+    position: absolute;
+    left: 78.3%;
+    top: 85.6%;
+    font-size: 1vw;
+}
+
+.speed_music_0{
+    position: absolute;
+    left: 16.4%;
+    top: 88.5%;
+    width: 2.4%;
+    text-align: center;
+    font-size: 1vw;
+    height: 2%;
+}
+.speed_music_45{
+    position: absolute;
+    left: 15.3%;
+    top: 86.1%;
+    width: 2.4%;
+    text-align: center;
+    font-size: 1vw;
+    height: 2%;
+}
+
+
+.speed_music_75{
+    position: absolute;
+    left: 17.7%;
+    top: 86.1%;
+    width: 2.4%;
+    font-size: 1vw;
+    height: 2%;
+}
+.content{
+    background:url("../images/fon.jpg")
+}
+.fon{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: url(../images/fon.jpg);
+}
+
+
+  @media (min-width: 1200px) {
+    .tracks{
+    background: url(../images/Note.png) no-repeat;
+    background-size: contain;
+    width: 40%;
+    margin: auto;
+    height: 800px;
+}
+  }
+
+  @media (min-width: 1400px) {
+    .tracks{
+    background: url(../images/Note.png) no-repeat;
+    background-size: contain;
+    width: 30%;
+    margin: auto;
+    height: 800px;
+}
+  }

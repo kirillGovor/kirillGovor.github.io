@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style/style.css" />
+    <script src="script/script.js"></script>
+</head>
+
+<body>
+    <div class="fon">
+    <header class="header">
+
+    </header>
+    <content class="content">
+
+        <div class="newDesignDisk">
+
+            <img class="vinilPlayer" src="images/vinilPlayer1.jpg">
+            <img class="NewDisk" id="disk" src="images/1Saw_Her_Standing_There.png">
+            <img class="newPicup" id="pickup" src="images/new_3.png">
+            <span id="tracktime">0 / 0</span>
+            <button onclick="play_music()" id="button_on_off">
+                включить/выключить
+            </button>
+            <p class="volumeText">звук</p>
+            <input name="rangeVolume" id="rangeVolume" class="rangeVolume" oninput="inputVolume()" min="0" max="100"
+                value="100" type="range">
+
+            <button class="speed_music_0" onclick="speed_music(0)">
+                0
+            </button>
+            <button class="speed_music_45" onclick="speed_music(45)">
+                45
+            </button>
+            <button class="speed_music_75" onclick="speed_music(75)">
+                75
+            </button>
+        </div>
+
+
+
+
+        <div class="tracks">
+            <br>
+            <h1 class="playlist">Плейлист:</h1>
+            <div class="Track1" onclick="focusFunction(0)" id="musicBlock">
+
+
+                <div class="playing_bar" data-value="music/Track1.mp3" id="playing_bar1">
+                    <p>Saw Her_Standing_There.ogg</p>
+                  
+                    
+
+                </div>
+            </div>
+
+            <div>
+                <div class="playing_bar" onclick="focusFunction(1)">
+                    <p onclick="StopTrack()">Track2</p>
+                   
+                   
+                 
+                </div>
+            </div>
+
+            <div class="playing_bar" onclick="focusFunction(2)">
+                <p>Track3</p>
+               
+                
+            
+            </div>
+        </div>
+
+
+    </content>
+
+
+    <audio id=Track1>
+        <source src="music/Saw Her_Standing_There.ogg" id="Tracks">
+    </audio>
+
+    <audio id="Track2">
+        <source src="music/Anna (Go To Him).ogg" id="Tracks2">
+    </audio>
+
+    <audio id="Track3">
+        <source src="music/Misery.ogg" id="Tracks3">
+    </audio>
+
+    <audio id="Track4">
+        <source src="music/Track1.mp3" id="Tracks4">
+    </audio>
+
+
+</div>
+</body>
